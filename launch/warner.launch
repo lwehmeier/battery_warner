@@ -1,0 +1,16 @@
+<!-- Starts up everything needed to run the example listener/talker Python nodes. -->
+
+<launch>
+  <node pkg="battery_warner" type="warner.py" name="warner_drive" output="screen">
+    <param name="rate" value="2"/>
+    <param name="publisher" value="/batteries/drive/failure"/>
+    <param name="subscriber" value="/batteries/drive/voltage"/>
+    <param name="voltage" value="10.2"/>
+  </node>
+  <node pkg="battery_warner" type="warner.py" name="warner_electronics" output="screen">
+    <param name="rate" value="2"/>
+    <param name="voltage" value="6.8"/>
+    <param name="publisher" value="/batteries/electronics/failure"/>
+    <param name="subscriber" value="/batteries/electronics/voltage"/>
+  </node>
+</launch>
